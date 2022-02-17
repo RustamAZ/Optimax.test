@@ -22,11 +22,14 @@
     &__list {
         display: flex;
         align-items: center;
+        margin: 0 -20px;
+        max-width: 375px;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__list-item {
-        cursor: pointer;;
-        margin-right: 20px;
+        cursor: pointer;
         transition: background-color 0.2s ease-in;
 
         a {

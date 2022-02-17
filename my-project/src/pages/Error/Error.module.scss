@@ -1,0 +1,20 @@
+@import '../../mixins';
+
+.error {
+    padding-top: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: $c-green;
+
+    .title {
+        @include font_title;
+        font-size: 100px;
+        margin: 0;
+    }
+
+    .subTitle {
+        @include font_title;
+        margin-bottom: 40px;
+    }
+}

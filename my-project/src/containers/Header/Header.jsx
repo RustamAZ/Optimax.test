@@ -8,15 +8,15 @@ const Header = function() {
                 <Grid>
                     <ul className={classes['header__list']}>
                         <li className={classes['header__list-item']}>
-                            <NavLink exact activeStyle={{color: '#000', backgroundColor: '#76b900'}} to="/">Home</NavLink>
+                            <NavLink exact="true" activestyle={{color: '#000', backgroundColor: '#76b900'}} to="/">Home</NavLink>
                         </li>
 
                         <li className={classes['header__list-item']}>
-                            <NavLink activeStyle={{color: '#000', backgroundColor: '#76b900'}} to="/shop">Shop</NavLink>
+                            <NavLink activestyle={{color: '#000', backgroundColor: '#76b900'}} to="/shop">Shop</NavLink>
                         </li>
 
                         <li className={classes['header__list-item']}>
-                            <NavLink activeStyle={{color: '#000', backgroundColor: '#76b900'}} to="/cart">Cart</NavLink>
+                            <NavLink activestyle={{color: '#000', backgroundColor: '#76b900'}} to="/cart">Cart</NavLink>
                         </li>
                     </ul>
                 </Grid>

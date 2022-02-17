@@ -1,0 +1,5 @@
+@import '../../mixins';
+
+.HomeTitle {
+    @include font_title;
+}
