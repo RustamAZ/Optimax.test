@@ -1,0 +1,13 @@
+.layout {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.footer-wrapper {
+    flex: 0 0 auto
+}

@@ -1,0 +1,44 @@
+@import 'conf';
+@import './fonts/fonts';
+
+//=========================================
+//  Размеры шрифта
+//=========================================
+@mixin fontsize_text() {
+    font-size: 16px;
+    line-height: calc(21 / 16);
+
+    @media (min-width: $media768) {
+        font-size: 18px;
+    }
+}
+
+@mixin fontsize_h1() { 
+
+}
+
+
+@mixin fontsize_h2() { 
+
+}
+
+//=========================================
+//  Шрифты
+//=========================================
+@mixin font_text() {
+    font-family: 'Lato', system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin font_title() { 
+    font-family: 'Red Hat Display', system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
