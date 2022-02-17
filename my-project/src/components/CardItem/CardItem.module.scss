@@ -1,0 +1,72 @@
+@import '../../mixins';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: $c-black;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease-in;
+
+
+    @media (min-width: $media768) {
+        width: calc(33.3% - 20px);
+    }
+
+    &:hover,
+    &:focus-visible {
+        transform: translate(5px, -5px);
+
+        .card__img {
+            opacity: 0.6;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 300px;
+        max-height: 300px;
+        opacity: 1;
+        transition: opacity 0.3s ease-in;
+    }
+
+    &__title {
+        @include font-title;
+        font-size: 16px;
+        line-height: calc(21 / 16);
+        color: $c-green;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+        opacity: 1;
+    }
+
+    &__info {
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    }
+
+    &__info-item {
+        @include fontsize_text;
+        margin-bottom: 5px;
+    }
+
+    &__price {
+        color: $c-green;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+        opacity: 1;
+    }
+}

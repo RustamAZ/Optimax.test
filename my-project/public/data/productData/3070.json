@@ -1,0 +1,11 @@
+{
+    "pk" : 5,
+    "name" : "GEFORCE RTX 3070",
+    "cuda" : 5888,
+    "ram" : 8,
+    "gz" : 1.73,
+    "type" : "GDDR6",
+    "price": 1600,
+    "startedPrice": 519,
+    "imgSrc" : "../../../img/3070.png"
+}

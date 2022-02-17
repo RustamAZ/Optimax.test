@@ -1,0 +1,11 @@
+{
+    "pk" : 4,
+    "name" : "GEFORCE RTX 3070 Ti",
+    "cuda" : 6144,
+    "ram" : 8,
+    "gz" : 1.77,
+    "type" : "GDDR6X",
+    "price": 1800,
+    "startedPrice": 550,
+    "imgSrc" : "../../../img/3070.png"
+}

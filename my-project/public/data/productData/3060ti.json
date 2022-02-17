@@ -1,0 +1,11 @@
+{
+    "pk" : 6,
+    "name" : "GEFORCE RTX 3060 Ti",
+    "cuda" : 4864,
+    "ram" : 8,
+    "gz" : 1.67,
+    "type" : "GDDR6",
+    "price": 1300,
+    "startedPrice": 360,
+    "imgSrc" : "../../../img/3060.png"
+}

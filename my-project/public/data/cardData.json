@@ -1,0 +1,137 @@
+{
+    "nvidia" : [
+        {
+            "pk" : "3090",
+            "name" : "GEFORCE RTX 3090",
+            "cuda" : 10496,
+            "ram" : 24,
+            "gz" : 1.7,
+            "type" : "GDDR6X",
+            "price": 3200,
+            "startedPrice": 1549,
+            "imgSrc" : "../../../img/3090.png"
+        },
+        {
+            "pk" : "3080ti",
+            "name" : "GEFORCE RTX 3080 Ti",
+            "cuda" : 10240,
+            "ram" : 12,
+            "gz" : 1.67,
+            "type" : "GDDR6X",
+            "price": 3000,
+            "startedPrice": 750,
+            "imgSrc" : "../../../img/3080.png"
+        },
+        {
+            "pk" : "3080",
+            "name" : "GEFORCE RTX 3080",
+            "cuda" : 8704,
+            "ram" : 10,
+            "gz" : 1.71,
+            "type" : "GDDR6X",
+            "price": 2900,
+            "startedPrice": 719,
+            "imgSrc" : "../../../img/3080.png"
+        },
+        {
+            "pk" : "3070ti",
+            "name" : "GEFORCE RTX 3070 Ti",
+            "cuda" : 6144,
+            "ram" : 8,
+            "gz" : 1.77,
+            "type" : "GDDR6X",
+            "price": 1800,
+            "startedPrice": 550,
+            "imgSrc" : "../../../img/3070.png"
+        },
+        {
+            "pk" : "3070",
+            "name" : "GEFORCE RTX 3070",
+            "cuda" : 5888,
+            "ram" : 8,
+            "gz" : 1.73,
+            "type" : "GDDR6",
+            "price": 1600,
+            "startedPrice": 519,
+            "imgSrc" : "../../../img/3070.png"
+        },
+        {
+            "pk" : "3060ti",
+            "name" : "GEFORCE RTX 3060 Ti",
+            "cuda" : 4864,
+            "ram" : 8,
+            "gz" : 1.67,
+            "type" : "GDDR6",
+            "price": 1300,
+            "startedPrice": 360,
+            "imgSrc" : "../../../img/3060.png"
+        },
+        {   
+            "pk" : "3060",
+            "name" : "GEFORCE RTX 3060",
+            "cuda" : 3584,
+            "ram" : 12,
+            "gz" : 1.78,
+            "type" : "GDDR6",
+            "price": 1100,
+            "startedPrice": 329,
+            "imgSrc" : "../../../img/3060.png"
+        }
+    ],
+    "amd" : [
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6900 XT",
+            "ram": 16,
+            "gz": 16,
+            "type": "GDDR6",
+            "price": 3000,
+            "startedPrice": 999
+        },
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6800 XT",
+            "ram": 16,
+            "gz": 2200,
+            "type": "GDDR6",
+            "price": 2000,
+            "startedPrice": 834
+        },
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6800",
+            "ram": 16,
+            "gz": 2000,
+            "type": "GDDR6",
+            "price": 1800,
+            "startedPrice": 700
+        },
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6700 XT",
+            "ram": 12,
+            "gz": 2000,
+            "type": "GDDR6",
+            "price": 1217,
+            "startedPrice": 479
+        },
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6600 XT",
+            "ram": 8,
+            "gz": 2359,
+            "type": "GDDR6",
+            "price": 1100,
+            "startedPrice": 360
+        },
+        {
+            "pk" : 8,
+            "name" : "AMD Radeon™ RX 6600",
+            "ram": 8,
+            "gz": 2000,
+            "type": "GDDR6",
+            "price": 1000,
+            "startedPrice": 329
+        }
+    ]
+}

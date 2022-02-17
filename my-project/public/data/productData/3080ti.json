@@ -1,0 +1,11 @@
+{
+    "pk" : 2,
+    "name" : "GEFORCE RTX 3080 Ti",
+    "cuda" : 10240,
+    "ram" : 12,
+    "gz" : 1.67,
+    "type" : "GDDR6X",
+    "price": 3000,
+    "startedPrice": 750,
+    "imgSrc" : "../../../img/3080.png"
+}

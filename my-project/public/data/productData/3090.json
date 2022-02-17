@@ -1,0 +1,11 @@
+{
+    "pk" : 1,
+    "name" : "GEFORCE RTX 3090",
+    "cuda" : 10496,
+    "ram" : 24,
+    "gz" : 1.7,
+    "type" : "GDDR6X",
+    "price": 3200,
+    "startedPrice": 1549,
+    "imgSrc" : "../../../img/3090.png"
+}
