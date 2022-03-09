@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react'
 import CardItem from '../CardItem/CardItem';
-import classes from './CardList.module.scss'
+import classes from './CardList.module.scss';
+import { Loader } from '../Loader/Loader';
 
 const CardList = function(props) {
     const [error, setError] = useState(null);
@@ -25,24 +26,27 @@ const CardList = function(props) {
     if (error) {
         return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
+        return <Loader />
     } else {
         return(
-            <ul className={classes['card__list']}>
-                {shopData.nvidia ? shopData.nvidia.map((item) => {
-                                            return <CardItem
-                                                        key={item.pk}
-                                                        name={item.name}
-                                                        gz={item.gz}
-                                                        ram={item.ram}
-                                                        type={item.type}
-                                                        imgSrc={item.imgSrc}
-                                                        price={item.price}
-                                                        cardId={item.pk}
-                                                    />
-                                        })
-                : null}
-            </ul>
+            <>
+                <ul className={classes['card__list']}>
+                    {shopData.nvidia ? shopData.nvidia.map((item) => {
+                                                return <CardItem
+                                                            key={item.pk}
+                                                            name={item.name}
+                                                            gz={item.gz}
+                                                            ram={item.ram}
+                                                            type={item.type}
+                                                            imgSrc={item.imgSrc}
+                                                            price={item.price}
+                                                            cardId={item.pk}
+                                                        />
+                                            })
+                    : null}
+                </ul>
+            </>
+
         );
     }
 };

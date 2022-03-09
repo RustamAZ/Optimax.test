@@ -12,11 +12,6 @@
     cursor: pointer;
     transition: transform 0.2s ease-in;
 
-
-    @media (min-width: $media768) {
-        width: calc(33.3% - 20px);
-    }
-
     &:hover,
     &:focus-visible {
         transform: translate(5px, -5px);
@@ -26,10 +21,15 @@
         }
     }
 
+    @media (min-width: $media768) {
+        width: calc(33.3% - 20px);
+    }
+
     &__img {
         width: 100%;
         max-width: 300px;
         max-height: 300px;
+        object-fit: cover;
         opacity: 1;
         transition: opacity 0.3s ease-in;
     }
