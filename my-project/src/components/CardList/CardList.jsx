@@ -1,54 +1,54 @@
-import { useEffect, useState} from 'react'
+import { useEffect } from 'react'
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
 import CardItem from '../CardItem/CardItem';
-import classes from './CardList.module.scss';
+import WithStoreService from '../../hoc/WithStoreService/WithStoreService';
+import { fetchCards, cardAddedToCart } from '../../actions';
 import { Loader } from '../Loader/Loader';
 
-const CardList = function(props) {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [shopData, setShopData] = useState([]);
+import classes from './CardList.module.scss';
+
+const CardListContainer = function(props) {
+    const {cards, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
-        fetch("http://localhost:3000/data/cardData.json")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setIsLoaded(true);
-            setShopData(result);
-          },
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
+        props.fetchCards();
     }, [])
 
-    if (error) {
-        return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {
+    if (loading) {
         return <Loader />
+    } else if (error) {
+        return <div>Ошибка: {error.message}</div>;
     } else {
-        return(
-            <>
-                <ul className={classes['card__list']}>
-                    {shopData.nvidia ? shopData.nvidia.map((item) => {
-                                                return <CardItem
-                                                            key={item.pk}
-                                                            name={item.name}
-                                                            gz={item.gz}
-                                                            ram={item.ram}
-                                                            type={item.type}
-                                                            imgSrc={item.imgSrc}
-                                                            price={item.price}
-                                                            cardId={item.pk}
-                                                        />
-                                            })
-                    : null}
-                </ul>
-            </>
-
-        );
+        return <CardList cards={cards} onAddedToCart={onAddedToCart}/>
     }
 };
 
-export default CardList;
+const CardList = ({cards, onAddedToCart}) => {
+    return (
+        <ul className={classes['card__list']}>
+            {cards ? cards.map((item) => {
+                return <CardItem key={item.pk} dataItem={item} onAddedToCart={() => onAddedToCart(item.pk)}/>
+                }) : null }
+        </ul>
+    )
+}
+
+const mapStateToProps = ({cardList: {cards, loading, error}}) => {
+    return { cards, loading, error };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const {storeService} = ownProps;
+
+    return {
+        fetchCards: fetchCards(storeService, dispatch),
+        onAddedToCart: (id) => dispatch(cardAddedToCart(id))
+    }
+};
+
+export default compose(
+    WithStoreService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(CardListContainer);
