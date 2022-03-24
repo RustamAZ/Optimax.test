@@ -1,11 +1,11 @@
-import CardList from "../../components/CardList/CardList";
+import CardListContainer from "../../components/CardList/CardList";
 
 const Shop = function() {
 
     return (
         <>
             <h1>SHOP</h1>
-            <CardList />
+            <CardListContainer />
         </>
     )
 }
