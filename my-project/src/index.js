@@ -1,20 +1,26 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import { Provider } from 'react-redux';
+
 import App from './hoc/App/App';
-import reportWebVitals from './reportWebVitals';
+import StoreService from './components/StoreService/StoreService';
+import { StoreServiceProvider } from './components/StoreServiceContext/StoreServiceContext';
+import store from './store';
+
+import './styles/index.scss';
+
+const storeService = new StoreService;
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
+      <StoreServiceProvider value={storeService}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
+      </StoreServiceProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
