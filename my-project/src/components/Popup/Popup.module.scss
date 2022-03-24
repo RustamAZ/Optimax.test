@@ -1,4 +1,4 @@
-@import '../../mixins.scss';
+@import '../../styles/mixins.scss';
 
 .popupContainer {
     left: 0;
@@ -21,8 +21,9 @@
         background: linear-gradient(217deg, rgba(255,0,0,1), rgba(255,0,0,0) 100%),
                     linear-gradient(127deg, rgba(0,255,0,1), rgba(0,255,0,0) 100%),
                     linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 221.71%);
-        opacity: 0;
-        transform: translateY(-30px);
+        // opacity: 0;
+        // transform: translateY(-30px);
+        
         transition: opacity 0.2s ease, transform 0.2s ease;
         position: relative;
 
