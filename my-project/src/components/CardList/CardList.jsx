@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { compose, bindActionCreators } from 'redux';
 
 import CardItem from '../CardItem/CardItem';
 import WithStoreService from '../../hoc/WithStoreService/WithStoreService';
@@ -42,10 +42,10 @@ const mapStateToProps = ({cardList: {cards, loading, error}}) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     const {storeService} = ownProps;
 
-    return {
-        fetchCards: fetchCards(storeService, dispatch),
-        onAddedToCart: (id) => dispatch(cardAddedToCart(id))
-    }
+    return bindActionCreators({
+        fetchCards: () => fetchCards(storeService),
+        onAddedToCart: cardAddedToCart
+    }, dispatch);
 };
 
 export default compose(

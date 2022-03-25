@@ -37,10 +37,22 @@ const cardDecreaseCount = (cardId) => {
         type: 'CARD_DECREASE_COUNT',
         payload: cardId
     }
-
 }
 
-const fetchCards = (storeService, dispatch) => () => {
+// const fetchCardsOld = (storeService, dispatch) => () => {
+//     dispatch(cardsRequested());
+
+//     storeService.getCards().then(res => res.json()).then(
+//         (result) => {
+//             dispatch(cardsLoaded(result.nvidia));
+//         },
+//         (error) => {
+//             dispatch(cardsError(error));
+//         }
+//     );
+// }
+
+const fetchCards = (storeService) => () => (dispatch) => {
     dispatch(cardsRequested());
 
     storeService.getCards().then(res => res.json()).then(

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import classes from './Cart.module.scss'
 
 const Cart = ({cartItems, total, onIncrease, onDecrease, onDelete}) => {
-    console.log(cartItems.length)
+
     return (
         <>
             <h1 className={classes.CartTitle}>CART</h1>

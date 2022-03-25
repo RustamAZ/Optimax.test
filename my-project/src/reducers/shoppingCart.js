@@ -51,7 +51,6 @@ const updateOrderItem = (state, cardId, quantity) => {
 }
 
 const updateShoppingCart = (state, action) => {
-    console.log(state, action)
     if (state === undefined) {
         return {
             cartItems: [],
@@ -67,7 +66,7 @@ const updateShoppingCart = (state, action) => {
             const item = state.shoppingCart.cartItems.find(({id}) => id === action.payload);
             return updateOrderItem(state, action.payload, -item.count);
         default:
-            return state.shoppingCard;
+            return state.shoppingCart;
     }
 }
 
