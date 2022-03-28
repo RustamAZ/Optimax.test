@@ -1,5 +1,5 @@
 {
-    "pk" : 3,
+    "id" : 3,
     "name" : "GEFORCE RTX 3080",
     "cuda" : 8704,
     "ram" : 10,

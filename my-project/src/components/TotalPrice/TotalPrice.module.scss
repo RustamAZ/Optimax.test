@@ -1,0 +1,6 @@
+@import '../../styles/mixins.scss';
+
+.TotalPrice {
+    color: $c-green;
+    @include font_title;
+}

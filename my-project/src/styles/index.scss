@@ -15,6 +15,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $c-white;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 ul {
@@ -28,6 +45,11 @@ ul {
 
 h1 {
   margin: 20px 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 html,

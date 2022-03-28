@@ -1,37 +1,40 @@
 @import '../../styles/mixins';
 
 .button {
+    display: inline-block;
     cursor: pointer;
     background: $c-black;
     border: none;
-    font-size: 16px;
-    line-height: calc(21 / 16);
-    background-color: $c-green;
+    @include fontsize_text;
+    @include font_title;
+    background-color: #76b900;
     border-radius: 10px;
     color: $c-black;
+    text-decoration: none;
+    text-align: center;
     border: 1px solid $c-black;
     padding: 10px 30px;
-    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
+    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in, opacity 0.3s ease;
 
     @media (min-width: 768px) {
         font-size: 18px;
     }
 
-    &:hover {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus-visible {
+        outline: 0;
         background-color: $c-black;
         color:$c-green;
         border: 1px solid $c-green;
     }
 
-    &:active {
+    &:not([disabled]):active {
         background-color: $c-black;
         color:$c-green-decorative;
         border: 1px solid $c-green-decorative;
     }
 
-    &:focus-visible {
-        background-color: $c-black;
-        color:$c-green;
-        border: 1px solid $c-green;
+    &[disabled] {
+        opacity: 0.6;
     }
 }

@@ -1,5 +1,13 @@
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import updateShoppingCart from "./shoppingCart";
 import updateCardList from "./cardList";
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
 const reducer = (state, action) => {
     return {
@@ -8,4 +16,6 @@ const reducer = (state, action) => {
     }
 }
 
-export default reducer;
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+export default persistedReducer;

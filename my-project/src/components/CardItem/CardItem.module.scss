@@ -1,10 +1,11 @@
 @import '../../styles/mixins';
 
-.card {
+.item {
+    width: 100%;
+    height: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     background-color: $c-black;
     margin: 0 20px 20px 0;
     border-radius: 10px;
@@ -16,25 +17,31 @@
     &:focus-visible {
         transform: translate(5px, -5px);
 
-        .card__img {
+        .img {
             opacity: 0.6;
         }
     }
 
-    @media (min-width: $media768) {
+    @media (min-width: $media480) {
+        width: calc(50% - 20px);
+        height: auto;
+    }
+
+    @media (min-width: $media1024) {
         width: calc(33.3% - 20px);
     }
 
-    &__img {
-        width: 100%;
-        max-width: 300px;
+    .img {
+        width: calc(100% - 40px);
+        max-width: 260px;
         max-height: 300px;
         object-fit: cover;
+        object-position: 50% 50%;
         opacity: 1;
         transition: opacity 0.3s ease-in;
     }
 
-    &__title {
+    .title {
         @include font-title;
         font-size: 16px;
         line-height: calc(21 / 16);
@@ -46,27 +53,133 @@
         opacity: 1;
     }
 
-    &__info {
-        padding: 10px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-    }
-
-    &__info-item {
-        @include fontsize_text;
-        margin-bottom: 5px;
-    }
-
-    &__price {
+    .price {
         color: $c-green;
         position: absolute;
         bottom: 20px;
         left: 20px;
         transition: transform 0.3s ease-in, opacity 0.3s ease-in;
         opacity: 1;
+    }
+}
+
+.popup {
+    min-height: 480px;
+    min-width: 320px;
+    max-height: 580px;
+    max-width: 460px;
+    width: 70vw;
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    z-index: 12;
+    background: linear-gradient(217deg, rgba(255,0,0,1), rgba(255,0,0,0) 100%),
+                linear-gradient(127deg, rgba(0,255,0,1), rgba(0,255,0,0) 100%),
+                linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 221.71%);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    @media (min-width: $media768) {
+        
+    }
+
+    .popupContent {
+        min-height: 470px;
+        min-width: 310px;
+        max-height: 570px;
+        max-width: 450px;
+        padding: 20px;
+        width: calc(70vw- 10px);
+        background-color: #000;
+        border-radius: 20px;
+        box-sizing: border-box;
+        z-index: 11;
+
+        @media (min-width: $media768) {
+        
+        }
+
+        .popupTitle {
+            margin: 0 0 20px 0;
+            color: #76b900;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: calc(26 / 22);
+
+            @media (min-width: $media768) {
+                font-size: 28px;
+            }
+
+            @media (min-width: $media1024) {
+                font-size: 32px;
+            }
+        }
+
+        .popupInfoBlock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .popupImgBlock {
+            margin-bottom: 10px;
+            height: 170px;
+        }
+
+        .popupImg {
+            object-fit: cover;
+            object-position: 50% 50%;
+            width: 270px;
+            height: 170px;
+        }
+
+        .popupInfoList {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .popupInfoItem {
+
+            padding-left: 20px;
+            position: relative;
+        
+            &::after {
+                content: '';
+                display: block;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: #76b900;
+            }
+        
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    
+        .popupPrice {
+            @include font-title;
+            font-size: 20px;
+            color: $c-green;
+            font-weight: 500;
+        }
+
+        .popupLower {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 }

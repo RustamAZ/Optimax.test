@@ -1,5 +1,5 @@
 {   
-    "pk" : 7,
+    "id" : 7,
     "name" : "GEFORCE RTX 3060",
     "cuda" : 3584,
     "ram" : 12,

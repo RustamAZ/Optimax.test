@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
+import { persistStore } from 'redux-persist';
+
 import thunkMiddleware from 'redux-thunk';
-import reducer from './reducers';
+import persistedReducer from './reducers';
 
 
 const logMiddleware = ({getState}) => (next) => (action) => {
     console.log(action.type, getState());
-
     return next(action);
 };
 
@@ -19,25 +20,12 @@ const stringMiddleware = () => (next) => (action) => {
     return next(action);
 };
 
-const store = createStore(reducer, applyMiddleware(
+const store = createStore(persistedReducer, applyMiddleware(
     thunkMiddleware,
     stringMiddleware,
     logMiddleware
 ));
 
 
-const delayedActionCreator = (timeout) => (dispatch) => {
-    setTimeout(() => {
-        dispatch({
-            type: 'DELAYED_ACTION'
-        })
-    }, timeout)
-}
-
-
-
-store.dispatch(delayedActionCreator(3000));
-
-store.dispatch('HELLO_WORLD');
-
 export default store;
+export const persistor = persistStore(store);

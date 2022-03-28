@@ -1,5 +1,5 @@
 {
-    "pk" : 4,
+    "id" : 4,
     "name" : "GEFORCE RTX 3070 Ti",
     "cuda" : 6144,
     "ram" : 8,

@@ -1,7 +1,7 @@
 {
     "nvidia" : [
         {
-            "pk" : "3090",
+            "id" : "3090",
             "name" : "GEFORCE RTX 3090",
             "cuda" : 10496,
             "ram" : 24,
@@ -12,7 +12,7 @@
             "imgSrc" : "../../../img/3090.png"
         },
         {
-            "pk" : "3080ti",
+            "id" : "3080ti",
             "name" : "GEFORCE RTX 3080 Ti",
             "cuda" : 10240,
             "ram" : 12,
@@ -23,7 +23,7 @@
             "imgSrc" : "../../../img/3080.png"
         },
         {
-            "pk" : "3080",
+            "id" : "3080",
             "name" : "GEFORCE RTX 3080",
             "cuda" : 8704,
             "ram" : 10,
@@ -34,7 +34,7 @@
             "imgSrc" : "../../../img/3080.png"
         },
         {
-            "pk" : "3070ti",
+            "id" : "3070ti",
             "name" : "GEFORCE RTX 3070 Ti",
             "cuda" : 6144,
             "ram" : 8,
@@ -45,7 +45,7 @@
             "imgSrc" : "../../../img/3070.png"
         },
         {
-            "pk" : "3070",
+            "id" : "3070",
             "name" : "GEFORCE RTX 3070",
             "cuda" : 5888,
             "ram" : 8,
@@ -56,7 +56,7 @@
             "imgSrc" : "../../../img/3070.png"
         },
         {
-            "pk" : "3060ti",
+            "id" : "3060ti",
             "name" : "GEFORCE RTX 3060 Ti",
             "cuda" : 4864,
             "ram" : 8,
@@ -67,7 +67,7 @@
             "imgSrc" : "../../../img/3060.png"
         },
         {   
-            "pk" : "3060",
+            "id" : "3060",
             "name" : "GEFORCE RTX 3060",
             "cuda" : 3584,
             "ram" : 12,
@@ -80,7 +80,7 @@
     ],
     "amd" : [
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6900 XT",
             "ram": 16,
             "gz": 16,
@@ -89,7 +89,7 @@
             "startedPrice": 999
         },
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6800 XT",
             "ram": 16,
             "gz": 2200,
@@ -98,7 +98,7 @@
             "startedPrice": 834
         },
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6800",
             "ram": 16,
             "gz": 2000,
@@ -107,7 +107,7 @@
             "startedPrice": 700
         },
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6700 XT",
             "ram": 12,
             "gz": 2000,
@@ -116,7 +116,7 @@
             "startedPrice": 479
         },
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6600 XT",
             "ram": 8,
             "gz": 2359,
@@ -125,7 +125,7 @@
             "startedPrice": 360
         },
         {
-            "pk" : 8,
+            "id" : 8,
             "name" : "AMD Radeon™ RX 6600",
             "ram": 8,
             "gz": 2000,

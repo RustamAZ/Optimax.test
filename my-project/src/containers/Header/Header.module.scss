@@ -14,11 +14,6 @@
         margin-bottom: 50px;
     }
 
-    .active {
-        color: $c-black;
-        background-color: $c-green;
-    }
-
     &__list {
         display: flex;
         align-items: center;
@@ -31,35 +26,41 @@
     &__list-item {
         cursor: pointer;
         transition: background-color 0.2s ease-in;
-
-        a {
-            @include font_title;
-            width: 100%;
-            height: 100%;
-            display: block;
-            padding: 30px 20px;
-            box-sizing: border-box;
-            color: $c-green;
-            text-decoration: none;
-            transition: color 0.2s ease-in;
-            text-transform: uppercase;
-
-            a:visited {
-                color: $c-green;
-            }
-
-            a:focus-visible {
-                color: $c-black;
-                background-color: $c-green;
-            }
-        }
-
+ 
         &:hover {
             background-color: $c-green;
 
             a {
                 color: $c-black;
             }
+        }
+    }
+
+    &__list-link {
+        @include font_title;
+        width: 100%;
+        height: 100%;
+        display: block;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        color: $c-green;
+        text-decoration: none;
+        transition: color 0.2s ease-in;
+        text-transform: uppercase;
+
+        &:visited {
+            color: $c-green;
+        }
+
+        &:focus-visible {
+            outline: 0;
+            color: $c-black;
+            background-color: $c-green;
+        }
+
+        &.selected {
+            color: $c-black;
+            background-color: $c-green;
         }
     }
 }

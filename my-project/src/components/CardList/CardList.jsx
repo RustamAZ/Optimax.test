@@ -10,6 +10,7 @@ import { Loader } from '../Loader/Loader';
 import classes from './CardList.module.scss';
 
 const CardListContainer = function(props) {
+    console.log(props)
     const {cards, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
@@ -27,11 +28,14 @@ const CardListContainer = function(props) {
 
 const CardList = ({cards, onAddedToCart}) => {
     return (
-        <ul className={classes['card__list']}>
-            {cards ? cards.map((item) => {
-                return <CardItem key={item.pk} dataItem={item} onAddedToCart={() => onAddedToCart(item.pk)}/>
-                }) : null }
-        </ul>
+        <>
+            <ul className={classes['card__list']}>
+                {cards ? cards.map((item) => {
+                    return <CardItem key={item.id} dataItem={item} onAddedToCart={() => onAddedToCart(item.id)}/>
+                    }) : null }
+            </ul>
+        </>
+
     )
 }
 
@@ -43,7 +47,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     const {storeService} = ownProps;
 
     return bindActionCreators({
-        fetchCards: () => fetchCards(storeService),
+        fetchCards: fetchCards(storeService),
         onAddedToCart: cardAddedToCart
     }, dispatch);
 };

@@ -2,6 +2,7 @@ const cardsRequested = () => {
     return {
         type: 'FETCH_CARDS_REQUESTED',
     }
+
 }
 
 const cardsLoaded = (newCards) => {
@@ -39,18 +40,12 @@ const cardDecreaseCount = (cardId) => {
     }
 }
 
-// const fetchCardsOld = (storeService, dispatch) => () => {
-//     dispatch(cardsRequested());
-
-//     storeService.getCards().then(res => res.json()).then(
-//         (result) => {
-//             dispatch(cardsLoaded(result.nvidia));
-//         },
-//         (error) => {
-//             dispatch(cardsError(error));
-//         }
-//     );
-// }
+const addNewProductToCart = (name, price) => {
+    return {
+        type: 'ADD_NEW_PRODUCT_TO_CART',
+        payload: {name, price}
+    }
+}
 
 const fetchCards = (storeService) => () => (dispatch) => {
     dispatch(cardsRequested());
@@ -70,4 +65,5 @@ export {
     cardAddedToCart,
     cardRemoveFromCart,
     cardDecreaseCount,
+    addNewProductToCart,
 };

@@ -5,7 +5,7 @@ const Home = function() {
         <>
             <h1 className={classes.HomeTitle}>HOME</h1>
             <p className={classes.HomeDesc}>
-                React dl education
+                Welcome to my testing project
             </p>
         </>
     )
