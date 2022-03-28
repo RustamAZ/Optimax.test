@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from "redux";
 import useInput from "../../hooks/useInput";
 
-import { addNewProductToCart } from "../../actions";
+import { addNewProductToCart } from "../../redux/actions";
 import Button from "../Button/Button";
 import ValidationError from "../ValidationError/ValidationError";
 
@@ -44,8 +44,8 @@ const NewProduct = (props) => {
     )
 }
 
-const mapStateToProps = ({cardList: {cards, loading, error}}) => {
-    return { cards, loading, error };
+const mapStateToProps = ({productList: {products, loading, error}}) => {
+    return { products, loading, error };
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { cardRemoveFromCart, cardAddedToCart, cardDecreaseCount } from '../../actions';
+import { productRemoveFromCart, productAddedToCart, productDecreaseCount } from '../../redux/actions';
 import TotalPrice from '../TotalPrice/TotalPrice';
 import Button from '../Button/Button';
 import Popup from '../Popup/Popup';
@@ -84,9 +84,9 @@ const mapStateToProps = ({shoppingCart: {cartItems, total}}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIncrease: (id) => dispatch(cardAddedToCart(id)),
-        onDecrease: (id) => dispatch(cardDecreaseCount(id)),
-        onDelete: (id) => dispatch(cardRemoveFromCart(id))
+        onIncrease: (id) => dispatch(productAddedToCart(id)),
+        onDecrease: (id) => dispatch(productDecreaseCount(id)),
+        onDelete: (id) => dispatch(productRemoveFromCart(id))
     }
 }
 

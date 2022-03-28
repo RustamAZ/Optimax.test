@@ -1,5 +1,5 @@
 export default class StoreService {
-    getCards() {
+    getProducts() {
         return fetch("http://localhost:3000/data/cardData.json")
     }
 }

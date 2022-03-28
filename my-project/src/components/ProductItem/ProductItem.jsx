@@ -3,9 +3,9 @@ import { useState } from 'react';
 import Popup from '../Popup/Popup';
 import Button from '../Button/Button';
 
-import classes from './CardItem.module.scss';
+import classes from './ProductItem.module.scss';
 
-const CardItem = function({dataItem, onAddedToCart}) {
+const ProductItem = function({dataItem, onAddedToCart}) {
     const [show, setShow] = useState(false);
 
     return (
@@ -49,4 +49,4 @@ const CardItem = function({dataItem, onAddedToCart}) {
     )
 };
 
-export default CardItem;
+export default ProductItem;

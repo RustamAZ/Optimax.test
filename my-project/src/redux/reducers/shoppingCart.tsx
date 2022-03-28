@@ -1,5 +1,3 @@
-
-
 const updateCartItems = (cartItems, item, idx) => {
     if (item.count === 0) {
         return [
@@ -22,11 +20,11 @@ const updateCartItems = (cartItems, item, idx) => {
     ];
 }
 
-const updateCartItem = (card, item = {}, quantity) => {
+const updateCartItem = (product, item = {}, quantity) => {
     const {
-        id = card.id,
+        id = product.id,
         count = 0,
-        name = card.name,
+        name = product.name,
         price = 0
     } = item;
 
@@ -34,20 +32,20 @@ const updateCartItem = (card, item = {}, quantity) => {
         id,
         name,
         count: count + quantity,
-        price: price + (quantity*card.price || quantity*item.price / count)
+        price: price + (quantity*product.price || quantity*item.price / count)
     }
 }
 
-const updateOrderItem = (state, cardId, quantity) => {
-    const {cardList: {cards}, shoppingCart: {cartItems, total}} = state;
-    const card = cards.find(({id}) => id === cardId) || cartItems.findIndex(({id}) => id === cardId);
-    const itemIndex = cartItems.findIndex(({id}) => id === cardId);
+const updateOrderItem = (state, productId, quantity) => {
+    const {productList: {products}, shoppingCart: {cartItems, total}} = state;
+    const product = products.find(({id}) => id === productId) || cartItems.findIndex(({id}) => id === productId);
+    const itemIndex = cartItems.findIndex(({id}) => id === productId);
     const item = cartItems[itemIndex];
 
-    const newItem = updateCartItem(card, item, quantity);
+    const newItem = updateCartItem(product, item, quantity);
 
     return {
-        total: total + (card.price*quantity || item.price*quantity / item.count),
+        total: total + (product.price*quantity || item.price*quantity / item.count),
         cartItems: updateCartItems(cartItems, newItem, itemIndex)
     };
 }
@@ -77,11 +75,11 @@ const updateShoppingCart = (state, action) => {
         }
     }
     switch (action.type) {
-        case 'CARD_ADDED_TO_CART':
+        case 'PRODUCT_ADDED_TO_CART':
             return updateOrderItem(state, action.payload, 1);
-        case 'CARD_DECREASE_COUNT' :
+        case 'PRODUCT_DECREASE_COUNT' :
             return updateOrderItem(state, action.payload, -1);
-        case 'CARD_REMOVE_FROM_CART':
+        case 'PRODUCT_REMOVE_FROM_CART':
             const item = state.shoppingCart.cartItems.find(({id}) => id === action.payload);
             return updateOrderItem(state, action.payload, -item.count);
         case 'ADD_NEW_PRODUCT_TO_CART': 

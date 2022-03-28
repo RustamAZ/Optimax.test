@@ -7,15 +7,13 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './hoc/App/App';
 import StoreService from './components/StoreService/StoreService';
 import { StoreServiceProvider } from './components/StoreServiceContext/StoreServiceContext';
-import store, { persistor } from './store';
-
+import store, { persistor } from './redux/store';
 
 import './styles/index.scss';
 
 const storeService = new StoreService;
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <StoreServiceProvider value={storeService}>
@@ -24,7 +22,6 @@ ReactDOM.render(
           </BrowserRouter>
         </StoreServiceProvider>
       </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );

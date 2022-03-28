@@ -1,8 +1,11 @@
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
+import { configureStore } from '@reduxjs/toolkit'
 import updateShoppingCart from "./shoppingCart";
-import updateCardList from "./cardList";
+import updateProductList from "./cardList";
+import { Statement } from 'typescript';
+
+
 
 const persistConfig = {
     key: 'root',
@@ -11,7 +14,7 @@ const persistConfig = {
 
 const reducer = (state, action) => {
     return {
-        cardList: updateCardList(state, action),
+        productList: updateProductList(state, action),
         shoppingCart: updateShoppingCart(state, action)
     }
 }
