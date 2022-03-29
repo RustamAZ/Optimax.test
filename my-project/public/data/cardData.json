@@ -1,7 +1,7 @@
 {
     "nvidia" : [
         {
-            "id" : "3090",
+            "id" : 1,
             "name" : "GEFORCE RTX 3090",
             "cuda" : 10496,
             "ram" : 24,
@@ -12,7 +12,7 @@
             "imgSrc" : "../../../img/3090.png"
         },
         {
-            "id" : "3080ti",
+            "id" : 2,
             "name" : "GEFORCE RTX 3080 Ti",
             "cuda" : 10240,
             "ram" : 12,
@@ -23,7 +23,7 @@
             "imgSrc" : "../../../img/3080.png"
         },
         {
-            "id" : "3080",
+            "id" : 3,
             "name" : "GEFORCE RTX 3080",
             "cuda" : 8704,
             "ram" : 10,
@@ -34,7 +34,7 @@
             "imgSrc" : "../../../img/3080.png"
         },
         {
-            "id" : "3070ti",
+            "id" : 4,
             "name" : "GEFORCE RTX 3070 Ti",
             "cuda" : 6144,
             "ram" : 8,
@@ -45,7 +45,7 @@
             "imgSrc" : "../../../img/3070.png"
         },
         {
-            "id" : "3070",
+            "id" : 5,
             "name" : "GEFORCE RTX 3070",
             "cuda" : 5888,
             "ram" : 8,
@@ -56,7 +56,7 @@
             "imgSrc" : "../../../img/3070.png"
         },
         {
-            "id" : "3060ti",
+            "id" : 6,
             "name" : "GEFORCE RTX 3060 Ti",
             "cuda" : 4864,
             "ram" : 8,
@@ -67,7 +67,7 @@
             "imgSrc" : "../../../img/3060.png"
         },
         {   
-            "id" : "3060",
+            "id" : 7,
             "name" : "GEFORCE RTX 3060",
             "cuda" : 3584,
             "ram" : 12,

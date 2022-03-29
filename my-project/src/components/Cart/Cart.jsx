@@ -34,6 +34,7 @@ const Cart = ({cartItems, total, onIncrease, onDecrease, onDelete}) => {
                     <tbody>
                         {cartItems.map((item, idx) => {
                             const {id, name, price, count} = item;
+
                             return (
                                 <tr className={classes.CartItem} key={id}>
                                     <td scope="row">

@@ -1,8 +1,11 @@
-import { ProductAction, ProductState, ProductActionTypes} from "../../types/productList";
-import { State } from "../../types/state";
+import { ProductList } from "../../types/components/productList";
+import { ProductAction } from "../../types/redux/actionTypes";
+import { State } from "../../types/redux/store";
+
+import { FETCH_PRODUCTS_FAILURE, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_REQUESTED } from "../../redux/actions"; 
 
 
-const updateProductList = (state: State, action: ProductAction): ProductState => {
+const productReducer = (state: State, action: ProductAction): ProductList => {
     if (state === undefined) {
         return {
             products: [],
@@ -10,20 +13,21 @@ const updateProductList = (state: State, action: ProductAction): ProductState =>
             error: null,
         }
     }
+
     switch (action.type) {
-        case ProductActionTypes.FETCH_PRODUCTS_SUCCESS:
+        case FETCH_PRODUCTS_SUCCESS:
             return {
                 products: action.payload,
                 loading: false,
                 error: null
             };
-        case ProductActionTypes.FETCH_PRODUCTS_REQUESTED:
+        case FETCH_PRODUCTS_REQUESTED:
             return {
                 products: [],
                 loading: true,
                 error: null
             };
-        case ProductActionTypes.FETCH_PRODUCTS_FAILURE:
+        case FETCH_PRODUCTS_FAILURE:
             return {
                 products: [],
                 loading: false,
@@ -34,4 +38,4 @@ const updateProductList = (state: State, action: ProductAction): ProductState =>
     }
 }
 
-export default updateProductList;
+export default productReducer;

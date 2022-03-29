@@ -15,7 +15,7 @@ const NewProduct = (props) => {
     const priceRef = useRef('');
 
     const addProductHandler = () => {
-        addNewProduct(nameRef.current.value, priceRef.current.value);
+        addNewProduct({name: nameRef.current.value, price: priceRef.current.value});
         setActive(false);
     };
 

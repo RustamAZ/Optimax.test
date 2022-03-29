@@ -9,7 +9,7 @@ import { Loader } from '../Loader/Loader';
 
 import classes from './ProductList.module.scss';
 
-const ProductListContainer: React.FC = function(props) {
+const ProductListContainer: React.FC = function(props: any) {
     const {products, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
@@ -25,11 +25,11 @@ const ProductListContainer: React.FC = function(props) {
     }
 };
 
-const ProductList = ({products, onAddedToCart}) => {
+const ProductList = ({products, onAddedToCart}: any) => {
     return (
         <>
             <ul className={classes['card__list']}>
-                {products ? products.map((product) => {
+                {products ? products.map((product: any) => {
                     return <CardItem key={product.id} dataItem={product} onAddedToCart={() => onAddedToCart(product.id)}/>
                     }) : null }
             </ul>
@@ -37,11 +37,11 @@ const ProductList = ({products, onAddedToCart}) => {
     )
 }
 
-const mapStateToProps = ({productList: {products, loading, error}}) => {
+const mapStateToProps = ({productList: {products, loading, error}}: any) => {
     return { products, loading, error };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch: any, ownProps: any) => {
     const {storeService} = ownProps;
 
     return bindActionCreators({
