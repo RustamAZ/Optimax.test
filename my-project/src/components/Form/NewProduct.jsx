@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from "redux";
 import useInput from "../../hooks/useInput";
 
-import { addNewProductToCart } from "../../redux/actions";
+import { addNewProductToCart } from "../../redux/actionCreators";
 import Button from "../Button/Button";
 import ValidationError from "../ValidationError/ValidationError";
 

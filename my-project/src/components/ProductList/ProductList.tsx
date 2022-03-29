@@ -4,12 +4,12 @@ import { compose, bindActionCreators } from 'redux';
 
 import CardItem from '../ProductItem/ProductItem';
 import WithStoreService from '../../hoc/WithStoreService/WithStoreService';
-import { fetchProducts, productAddedToCart } from '../../redux/actions';
+import { fetchProducts, productAddedToCart } from '../../redux/actionCreators';
 import { Loader } from '../Loader/Loader';
 
 import classes from './ProductList.module.scss';
 
-const ProductListContainer = function(props) {
+const ProductListContainer: React.FC = function(props) {
     const {products, error, loading, onAddedToCart} = props;
 
     useEffect(() => {

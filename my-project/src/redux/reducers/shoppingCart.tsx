@@ -1,3 +1,6 @@
+import { ShoppingCart } from "../../types/shoppingCart";
+import { State } from '../../types/state';
+
 const updateCartItems = (cartItems, item, idx) => {
     if (item.count === 0) {
         return [
@@ -36,7 +39,7 @@ const updateCartItem = (product, item = {}, quantity) => {
     }
 }
 
-const updateOrderItem = (state, productId, quantity) => {
+const updateOrderItem = (state: State, productId, quantity) => {
     const {productList: {products}, shoppingCart: {cartItems, total}} = state;
     const product = products.find(({id}) => id === productId) || cartItems.findIndex(({id}) => id === productId);
     const itemIndex = cartItems.findIndex(({id}) => id === productId);
@@ -50,7 +53,7 @@ const updateOrderItem = (state, productId, quantity) => {
     };
 }
 
-const addNewProductinCart = (state, newProduct) => {
+const addNewProductinCart = (state: State, newProduct) => {
     const {shoppingCart: {cartItems, total}} = state
 
     return {
@@ -67,7 +70,7 @@ const addNewProductinCart = (state, newProduct) => {
     }
 }
 
-const updateShoppingCart = (state, action) => {
+const updateShoppingCart = (state: State, action): ShoppingCart => {
     if (state === undefined) {
         return {
             cartItems: [],

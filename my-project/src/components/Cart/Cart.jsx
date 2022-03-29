@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { productRemoveFromCart, productAddedToCart, productDecreaseCount } from '../../redux/actions';
+import { productRemoveFromCart, productAddedToCart, productDecreaseCount } from '../../redux/actionCreators';
 import TotalPrice from '../TotalPrice/TotalPrice';
 import Button from '../Button/Button';
 import Popup from '../Popup/Popup';

@@ -1,19 +1,21 @@
+import {FETCH_PRODUCTS_REQUESTED, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE} from '../actions';
+
 const productsRequested = () => {
     return {
-        type: 'FETCH_PRODUCTS_REQUESTED',
+        type: FETCH_PRODUCTS_REQUESTED,
     }
 }
 
 const productsLoaded = (newProducts) => {
     return {
-        type: 'FETCH_PRODUCTS_SUCCESS',
+        type: FETCH_PRODUCTS_SUCCESS,
         payload: newProducts
     };
 };
 
 const productsError = (error) => {
     return {
-        type: 'FETCH_PRODUCTS_FAILURE',
+        type: FETCH_PRODUCTS_FAILURE,
         payload: error
     }
 }

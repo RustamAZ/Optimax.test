@@ -1,18 +1,17 @@
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { configureStore } from '@reduxjs/toolkit'
+
 import updateShoppingCart from "./shoppingCart";
-import updateProductList from "./cardList";
-import { Statement } from 'typescript';
+import updateProductList from "./productList";
 
-
+import { State } from '../../types/state';
 
 const persistConfig = {
     key: 'root',
     storage,
 }
 
-const reducer = (state, action) => {
+const reducer = (state: State, action) => {
     return {
         productList: updateProductList(state, action),
         shoppingCart: updateShoppingCart(state, action)
