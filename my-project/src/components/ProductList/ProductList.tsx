@@ -15,7 +15,6 @@ import classes from './ProductList.module.scss';
 
 
 const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
-
     const {products, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
@@ -28,13 +27,14 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         return <div>Ошибка: {error}</div>;
     } else {
         return (
-            <>
+            <section>
+                <h2 className="visually-hidden">Product List</h2>
                 <ul className={classes['card__list']}>
                     {products ? products.map((product: Product) => {
                         return <ProductItem key={product.id} dataItem={product} onAddedToCart={() => onAddedToCart(product.id)}/>
                         }) : null }
                 </ul>
-            </>
+            </section>
         )
     }
 };
