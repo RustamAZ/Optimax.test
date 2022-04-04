@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
+import { ProductItemProps } from '../../types/components/productItem';
+
 import Popup from '../Popup/Popup';
 import Button from '../Button/Button';
 
 import classes from './ProductItem.module.scss';
 
-const ProductItem = function({dataItem, onAddedToCart}) {
+const ProductItem: React.FC<ProductItemProps> = function({dataItem, onAddedToCart}: ProductItemProps) {
     const [show, setShow] = useState(false);
 
     return (
@@ -41,7 +43,6 @@ const ProductItem = function({dataItem, onAddedToCart}) {
 
                                     <Button clickHandler={() => {onAddedToCart(dataItem.id)}} type="button" text="Add to Cart"/>
                                 </div>
-
                             </div>
                         </div>
                     </Popup> : null}

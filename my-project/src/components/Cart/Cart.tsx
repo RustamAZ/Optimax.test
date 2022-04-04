@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { CartItem, ShoppingCartProps } from '../../types/components/shoppingCart';
+import { AppAction } from '../../types/redux/actionTypes';
+
 import { productRemoveFromCart, productAddedToCart, productDecreaseCount } from '../../redux/actionCreators';
 import TotalPrice from '../TotalPrice/TotalPrice';
 import Button from '../Button/Button';
@@ -8,8 +11,11 @@ import Popup from '../Popup/Popup';
 import NewProduct from '../Form';
 
 import classes from './Cart.module.scss';
+import { AppState } from '../../types/redux/store';
+import { Dispatch } from 'redux';
 
-const Cart = ({cartItems, total, onIncrease, onDecrease, onDelete}) => {
+const Cart: React.FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
+    const {cartItems, total, onIncrease, onDecrease, onDelete} = props;
     const [showPopup, setShowPopup] = useState(false);
 
     return (
@@ -32,7 +38,7 @@ const Cart = ({cartItems, total, onIncrease, onDecrease, onDelete}) => {
                     </thead>
 
                     <tbody>
-                        {cartItems.map((item, idx) => {
+                        {cartItems.map((item: CartItem, idx: number) => {
                             const {id, name, price, count} = item;
 
                             return (
@@ -62,32 +68,37 @@ const Cart = ({cartItems, total, onIncrease, onDecrease, onDelete}) => {
                     </tbody>
                 </table>
 
+                {showPopup ?
+                    <Popup setActive={setShowPopup}>
+                        <NewProduct setActive={setShowPopup}/>
+                    </Popup>
+                : null}
+            </div>
+              :
+            <div>
                 <div className={classes.AddCardWraper}>
                     <span className={classes.total}>Total: <TotalPrice total={total}/></span>
                     <Button type={'button'} text={"Add New Product"} clickHandler={() => setShowPopup(true)}/>
                 </div>
 
-                {showPopup ? <Popup setActive={setShowPopup}>
-                    <NewProduct setActive={setShowPopup}/>
-                </Popup> : null}
-
-            </div> : <span>Your cart is empty :(</span>}
+                <span>Your cart is empty :(</span>
+            </div>}
         </section>
     )
 }
 
-const mapStateToProps = ({shoppingCart: {cartItems, total}}) => {
+const mapStateToProps = ({shoppingCart: {cartItems, total}}: AppState) => {
     return {
         cartItems,
         total
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => {
     return {
-        onIncrease: (id) => dispatch(productAddedToCart(id)),
-        onDecrease: (id) => dispatch(productDecreaseCount(id)),
-        onDelete: (id) => dispatch(productRemoveFromCart(id))
+        onIncrease: (id: number) => dispatch(productAddedToCart(id)),
+        onDecrease: (id: number) => dispatch(productDecreaseCount(id)),
+        onDelete: (id: number) => dispatch(productRemoveFromCart(id))
     }
 }
 

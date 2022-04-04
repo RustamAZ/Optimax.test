@@ -1,6 +1,6 @@
 import classes from './Home.module.scss';
 
-const Home = function() {
+const Home: React.FC = function() {
     return (
         <>
             <h1 className={classes.HomeTitle}>HOME</h1>

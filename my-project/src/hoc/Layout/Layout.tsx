@@ -5,7 +5,7 @@ import Footer from '../../containers/Footer/Footer';
 import Grid from '../Grid/Grid';
 
 
-const Layout = function(props) {
+const Layout: React.FC = function(props) {
     return (
         <div className={classes.layout}>
             <Header />

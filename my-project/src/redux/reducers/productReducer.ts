@@ -1,11 +1,11 @@
+import { AppState } from './rootReducer';
 import { ProductList } from "../../types/components/productList";
 import { ProductAction } from "../../types/redux/actionTypes";
-import { State } from "../../types/redux/store";
 
 import { FETCH_PRODUCTS_FAILURE, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_REQUESTED } from "../../redux/actions"; 
 
 
-const productReducer = (state: State, action: ProductAction): ProductList => {
+const productReducer = (state: AppState, action: ProductAction): ProductList => {
     if (state === undefined) {
         return {
             products: [],

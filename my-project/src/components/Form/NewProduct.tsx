@@ -1,7 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef} from "react";
 import { connect } from 'react-redux'
-import { bindActionCreators } from "redux";
+import { bindActionCreators, Dispatch } from "redux";
 import useInput from "../../hooks/useInput";
+
+import { NewProductProps } from "../../types/components/newProductForm";
+import { AppState } from "../../types/redux/store";
+import { AppAction } from '../../types/redux/actionTypes'
 
 import { addNewProductToCart } from "../../redux/actionCreators";
 import Button from "../Button/Button";
@@ -9,10 +13,10 @@ import ValidationError from "../ValidationError/ValidationError";
 
 import classes from './NewProduct.module.scss';
 
-const NewProduct = (props) => {
+const NewProduct: React.FC<NewProductProps> = (props: NewProductProps) => {
     const {addNewProduct, setActive} = props;
-    const nameRef = useRef('');
-    const priceRef = useRef('');
+    const nameRef: any = useRef('');
+    const priceRef: any = useRef('');
 
     const addProductHandler = () => {
         addNewProduct({name: nameRef.current.value, price: priceRef.current.value});
@@ -44,11 +48,11 @@ const NewProduct = (props) => {
     )
 }
 
-const mapStateToProps = ({productList: {products, loading, error}}) => {
+const mapStateToProps = ({productList: {products, loading, error}}: AppState): any => {
     return { products, loading, error };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => {
     return bindActionCreators({
         addNewProduct: addNewProductToCart
     }, dispatch)

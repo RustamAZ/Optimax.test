@@ -32,7 +32,7 @@ interface ProductRemoveFromCart {
     payload: number
 }
 
-interface AddNewProduct {
+export interface AddNewProduct {
     type: typeof ADD_NEW_PRODUCT_TO_CART,
     payload: NewProduct
 }

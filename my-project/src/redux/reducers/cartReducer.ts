@@ -1,7 +1,7 @@
 import { Product } from "../../types/components/productList";
 import { CartItem, NewProduct, ShoppingCart } from "../../types/components/shoppingCart";
 import { CartAction } from "../../types/redux/actionTypes";
-import { State } from '../../types/redux/store';
+import { AppState } from '../../types/redux/store';
 
 import { PRODUCT_ADDED_TO_CART, PRODUCT_DECREASE_COUNT, PRODUCT_REMOVE_FROM_CART, ADD_NEW_PRODUCT_TO_CART } from "../../redux/actions";
 
@@ -58,7 +58,7 @@ const updateCartItem = (product: Product | any, item: CartItem, quantity: number
     }
 };
 
-const updateOrderItem = (state: State, productId: number, quantity: number) => {
+const updateOrderItem = (state: AppState, productId: number, quantity: number) => {
     const {productList: {products}, shoppingCart: {cartItems, total}} = state;
     const itemIndex = cartItems.findIndex(({id}) => id === productId);
     const item = cartItems[itemIndex];
@@ -78,7 +78,7 @@ const updateOrderItem = (state: State, productId: number, quantity: number) => {
     }
 };
 
-const addNewProductToCart = (state: State, newProduct: NewProduct) => {
+const addNewProductToCart = (state: AppState, newProduct: NewProduct) => {
     const {shoppingCart: {cartItems, total}} = state;
 
     return {
@@ -95,7 +95,7 @@ const addNewProductToCart = (state: State, newProduct: NewProduct) => {
     }
 };
 
-const cartReducer = (state: State, action: CartAction): ShoppingCart => {
+const cartReducer = (state: AppState, action: CartAction): ShoppingCart => {
     if (state === undefined) {
         return {
             total: 0,

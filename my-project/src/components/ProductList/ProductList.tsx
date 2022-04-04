@@ -1,15 +1,21 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { compose, bindActionCreators } from 'redux';
+import { compose, bindActionCreators, Dispatch } from 'redux';
 
-import CardItem from '../ProductItem/ProductItem';
+import { Product, ProductListProps } from '../../types/components/productList';
+import { AppState } from '../../types/redux/store';
+import { AppAction } from '../../types/redux/actionTypes';
+
+import ProductItem from '../ProductItem/ProductItem';
 import WithStoreService from '../../hoc/WithStoreService/WithStoreService';
 import { fetchProducts, productAddedToCart } from '../../redux/actionCreators';
 import { Loader } from '../Loader/Loader';
 
 import classes from './ProductList.module.scss';
 
-const ProductListContainer: React.FC = function(props: any) {
+
+const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
+
     const {products, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
@@ -19,29 +25,25 @@ const ProductListContainer: React.FC = function(props: any) {
     if (loading) {
         return <Loader />
     } else if (error) {
-        return <div>Ошибка: {error.message}</div>;
+        return <div>Ошибка: {error}</div>;
     } else {
-        return <ProductList products={products} onAddedToCart={onAddedToCart}/>
+        return (
+            <>
+                <ul className={classes['card__list']}>
+                    {products ? products.map((product: Product) => {
+                        return <ProductItem key={product.id} dataItem={product} onAddedToCart={() => onAddedToCart(product.id)}/>
+                        }) : null }
+                </ul>
+            </>
+        )
     }
 };
 
-const ProductList = ({products, onAddedToCart}: any) => {
-    return (
-        <>
-            <ul className={classes['card__list']}>
-                {products ? products.map((product: any) => {
-                    return <CardItem key={product.id} dataItem={product} onAddedToCart={() => onAddedToCart(product.id)}/>
-                    }) : null }
-            </ul>
-        </>
-    )
-}
-
-const mapStateToProps = ({productList: {products, loading, error}}: any) => {
+const mapStateToProps = ({productList: {products, loading, error}}: AppState) => {
     return { products, loading, error };
 };
 
-const mapDispatchToProps = (dispatch: any, ownProps: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>, ownProps: ProductListProps) => {
     const {storeService} = ownProps;
 
     return bindActionCreators({
@@ -53,4 +55,4 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => {
 export default compose(
     WithStoreService(),
     connect(mapStateToProps, mapDispatchToProps)
-)(ProductListContainer);
+)(ProductList);

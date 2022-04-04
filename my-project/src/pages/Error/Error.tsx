@@ -3,7 +3,7 @@ import classes from './Error.module.scss';
 import Button from "../../components/Button/Button";
 
 
-const ErrorPage = function() {
+const ErrorPage: React.FC = function() {
     return (
         <section className={classes.error}>
             <h1 className={classes.title}>404</h1>

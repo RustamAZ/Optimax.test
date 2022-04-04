@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
+
+import { PopupProps } from '../../types/components/popup';
+
 import classes from './Popup.module.scss';
 
-const Popup = ({setActive, children}) => {
+const Popup: React.FC<PopupProps>= ({setActive, children}: PopupProps) => {
     const [popupActive, setPopupActive] = useState(false);
 
     useEffect(() => {
@@ -13,7 +16,7 @@ const Popup = ({setActive, children}) => {
             <div className={classes.container}>
                 <div onClick={() => {setActive(false)}} className={classes.overlay}>
                 </div>
-                
+
                 {children}
             </div>
         )

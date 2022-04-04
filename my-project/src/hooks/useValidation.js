@@ -18,7 +18,7 @@ const useValidation = (value, validations) => {
                 default:
                     return;
             }
-        }                                                                                                                                                                                                                                                                                                                                                              
+        }
     }, [value])
 
     useEffect(() => {
