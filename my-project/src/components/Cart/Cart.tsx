@@ -73,13 +73,14 @@ const Cart: any = (props: ShoppingCartProps) => {
                         <NewProduct setActive={setShowPopup}/>
                     </Popup>
                 : null}
-            </div>
-              :
-            <div>
                 <div className={classes.AddCardWraper}>
                     <span className={classes.total}>Total: <TotalPrice total={total}/></span>
                     <Button type={'button'} text={"Add New Product"} clickHandler={() => setShowPopup(true)}/>
                 </div>
+            </div>
+              :
+            <div>
+
 
                 <span>Your cart is empty :(</span>
             </div>}

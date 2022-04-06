@@ -6,7 +6,6 @@ import { AppAction } from '../../types/redux/actionTypes';
 import cartReducer from "./cartReducer";
 import productReducer from "./productReducer";
 
-
 const persistConfig = {
     key: 'root',
     storage,
