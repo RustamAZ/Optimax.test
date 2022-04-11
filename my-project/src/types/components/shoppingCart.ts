@@ -21,6 +21,8 @@ export interface ShoppingCart {
     cartItems: CartItem[]
 }
 
+// export type ShoppingCart = Promise<{ total: number; cartItems: CartItem[]; }>
+
 export interface ShoppingCartProps {
     cartItems: CartItem[],
     onDelete: (id :number) => Dispatch,

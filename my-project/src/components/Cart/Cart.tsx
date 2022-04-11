@@ -15,7 +15,8 @@ import { AppState } from '../../types/redux/store';
 import { Dispatch } from 'redux';
 
 const Cart: any = (props: ShoppingCartProps) => {
-    const {cartItems, total, onIncrease, onDecrease, onDelete} = props;
+    console.log(props)
+    const {cartItems = [], total, onIncrease, onDecrease, onDelete} = props;
     const [showPopup, setShowPopup] = useState(false);
 
     return (

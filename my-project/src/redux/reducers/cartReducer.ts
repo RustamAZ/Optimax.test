@@ -1,9 +1,9 @@
 import { Product } from "../../types/components/productList";
 import { CartItem, NewProduct, ShoppingCart } from "../../types/components/shoppingCart";
 import { CartAction } from "../../types/redux/actionTypes";
-import { AppState } from '../../types/redux/store';
 
 import { PRODUCT_ADDED_TO_CART, PRODUCT_DECREASE_COUNT, PRODUCT_REMOVE_FROM_CART, ADD_NEW_PRODUCT_TO_CART } from "../../redux/actions";
+import store from "../store";
 
 const updateCartItems = (cartItems: CartItem[], item: CartItem, idx: number) => {
     if (item.count === 0) {
@@ -58,13 +58,17 @@ const updateCartItem = (product: Product | any, item: CartItem, quantity: number
     }
 };
 
-const updateOrderItem = (state: AppState, productId: number, quantity: number) => {
-    const {productList: {products}, shoppingCart: {cartItems, total}} = state;
+const updateOrderItem = (state: ShoppingCart, productId: number, quantity: number) => {
+    const globalState: any = store.getState();
+    const products: any = globalState.productList.products;
+    const {cartItems, total} = state;
+
     const itemIndex = cartItems.findIndex(({id}) => id === productId);
     const item = cartItems[itemIndex];
-    const product = products.find(product => product.id === productId);
+    const product: any = products.find((product: any) => product.id === productId);
 
     const newItem = updateCartItem(product, item, quantity);
+
     if (product) {
         return {
             total: total + product.price*quantity,
@@ -78,8 +82,8 @@ const updateOrderItem = (state: AppState, productId: number, quantity: number) =
     }
 };
 
-const addNewProductToCart = (state: AppState, newProduct: NewProduct) => {
-    const {shoppingCart: {cartItems, total}} = state;
+const addNewProductToCart = (state: ShoppingCart, newProduct: NewProduct) => {
+    const {cartItems, total} = state;
 
     return {
         total: total + +newProduct.price,
@@ -95,30 +99,28 @@ const addNewProductToCart = (state: AppState, newProduct: NewProduct) => {
     }
 };
 
-const cartReducer = (state: AppState, action: CartAction): ShoppingCart => {
-    if (state === undefined) {
-        return {
-            total: 0,
-            cartItems: []
-        };
-    }
+const initialCartState = {
+    total: 0,
+    cartItems: []
+}
 
+const cartReducer = (state: ShoppingCart = initialCartState, action: CartAction): ShoppingCart => {
     switch (action.type) {
         case PRODUCT_ADDED_TO_CART:
             return updateOrderItem(state, action.payload, 1);
         case PRODUCT_DECREASE_COUNT :
             return updateOrderItem(state, action.payload, -1);
         case PRODUCT_REMOVE_FROM_CART:
-            const item = state.shoppingCart.cartItems.find(({id}) => id === action.payload);
+            const item = state.cartItems.find(({id}) => id === action.payload);
             if (item) {
                 return updateOrderItem(state, action.payload, -item.count)
             } else {
-                return state.shoppingCart;
+                return state;
             }
         case ADD_NEW_PRODUCT_TO_CART: 
             return addNewProductToCart(state, action.payload);
         default:
-            return state.shoppingCart;
+            return state;
     }
 };
 

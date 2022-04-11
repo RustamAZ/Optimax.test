@@ -1,19 +1,15 @@
-import { AppState } from './rootReducer';
 import { ProductList } from "../../types/components/productList";
 import { ProductAction } from "../../types/redux/actionTypes";
 
 import { FETCH_PRODUCTS_FAILURE, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_REQUESTED } from "../../redux/actions"; 
 
+const initialProductState = {
+    products: [],
+    loading: false,
+    error: null
+}
 
-const productReducer = (state: AppState, action: ProductAction): ProductList => {
-    if (state === undefined) {
-        return {
-            products: [],
-            loading: true,
-            error: null,
-        }
-    }
-
+const productReducer = (state: ProductList = initialProductState, action: ProductAction): ProductList => {
     switch (action.type) {
         case FETCH_PRODUCTS_SUCCESS:
             return {
@@ -34,7 +30,7 @@ const productReducer = (state: AppState, action: ProductAction): ProductList => 
                 error: action.payload
             };
         default:
-            return state.productList;
+            return state;
     }
 }
 
