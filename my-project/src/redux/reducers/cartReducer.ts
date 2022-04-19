@@ -27,7 +27,7 @@ const updateCartItems = (cartItems: CartItem[], item: CartItem, idx: number) => 
     ];
 };
 
-const updateCartItem = (product: Product | any, item: CartItem, quantity: number) => {
+const updateCartItem = (product: Product | undefined, item: CartItem, quantity: number) => {
     if (product) {
         if (item === undefined) {
             item = {

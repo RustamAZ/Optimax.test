@@ -4,7 +4,7 @@ import { compose, bindActionCreators, Dispatch } from 'redux';
 
 import { Product, ProductListProps } from '../../types/components/productList';
 import { AppState } from '../../types/redux/store';
-import { AppAction } from '../../types/redux/actionTypes';
+import { ProductAction } from '../../types/redux/actionTypes';
 
 import ProductItem from '../ProductItem/ProductItem';
 import WithStoreService from '../../hoc/WithStoreService/WithStoreService';
@@ -14,7 +14,7 @@ import { Loader } from '../Loader/Loader';
 import classes from './ProductList.module.scss';
 
 
-const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
+const ProductList: React.FC<ProductListProps> = (props) => {
     const {products, error, loading, onAddedToCart} = props;
 
     useEffect(() => {
@@ -43,7 +43,7 @@ const mapStateToProps = ({productList: {products, loading, error}}: AppState) =>
     return { products, loading, error };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<AppAction>, ownProps: ProductListProps) => {
+const mapDispatchToProps = (dispatch: Dispatch<ProductAction>, ownProps: ProductListProps) => {
     const {storeService} = ownProps;
 
     return bindActionCreators({

@@ -1,4 +1,4 @@
-import { AppAction } from './../../types/redux/actionTypes';
+import { AppAction, ProductAction, CartAction } from './../../types/redux/actionTypes';
 import { Product, ProductList } from './../../types/components/productList';
 
 import {
@@ -15,48 +15,48 @@ import  {Dispatch} from 'redux';
 import { StoreService } from '../../types/services/storeServicesType';
 
 
-const productsRequested = (): AppAction => {
+const productsRequested = (): ProductAction => {
     return {
         type: FETCH_PRODUCTS_REQUESTED,
     }
 }
 
-const productsLoaded = (products: Product[]): AppAction => {
+const productsLoaded = (products: Product[]): ProductAction => {
     return {
         type: FETCH_PRODUCTS_SUCCESS,
         payload: products
     };
 };
 
-const productsError = (error: string): AppAction => {
+const productsError = (error: string): ProductAction => {
     return {
         type: FETCH_PRODUCTS_FAILURE,
         payload: error
     }
 }
 
-const productAddedToCart = (productId: number): AppAction => {
+const productAddedToCart = (productId: number): CartAction => {
     return {
         type: PRODUCT_ADDED_TO_CART,
         payload: productId
     }
 }
 
-const productRemoveFromCart = (productId: number): AppAction => {
+const productRemoveFromCart = (productId: number): CartAction => {
     return {
         type: PRODUCT_REMOVE_FROM_CART,
         payload: productId
     }
 }
 
-const productDecreaseCount = (productId: number): AppAction => {
+const productDecreaseCount = (productId: number): CartAction => {
     return {
         type: PRODUCT_DECREASE_COUNT,
         payload: productId
     }
 }
 
-const addNewProductToCart = (newProduct: NewProduct): AppAction => {
+const addNewProductToCart = (newProduct: NewProduct): CartAction => {
     return {
         type: ADD_NEW_PRODUCT_TO_CART,
         payload: newProduct

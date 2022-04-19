@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, Matching } from 'react-redux';
 
 import { CartItem, ShoppingCartProps } from '../../types/components/shoppingCart';
-import { AppAction } from '../../types/redux/actionTypes';
+import { AppAction, CartAction } from '../../types/redux/actionTypes';
 
 import { productRemoveFromCart, productAddedToCart, productDecreaseCount } from '../../redux/actionCreators';
 import TotalPrice from '../TotalPrice/TotalPrice';
@@ -12,7 +12,7 @@ import NewProduct from '../Form';
 
 import classes from './Cart.module.scss';
 import { AppState } from '../../types/redux/store';
-import { Dispatch } from 'redux';
+import { compose, Dispatch } from 'redux';
 
 const Cart: any = (props: ShoppingCartProps) => {
     const {cartItems, total, onIncrease, onDecrease, onDelete} = props;
@@ -80,8 +80,6 @@ const Cart: any = (props: ShoppingCartProps) => {
             </div>
               :
             <div>
-
-
                 <span>Your cart is empty :(</span>
             </div>}
         </section>
@@ -95,7 +93,7 @@ const mapStateToProps = ({shoppingCart: {cartItems, total}}: AppState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<CartAction>) => {
     return {
         onIncrease: (id: number) => dispatch(productAddedToCart(id)),
         onDecrease: (id: number) => dispatch(productDecreaseCount(id)),
@@ -103,4 +101,6 @@ const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+)(Cart);
